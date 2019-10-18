@@ -17,19 +17,26 @@ public class Main
                 };
 
         Sudoku sudo = new Sudoku();
-        sudo.setBoard(board);
-        sudo.printOut();
-
-        System.out.println(" ");
-
-        if (sudo.SolveSudoku())
+        if(sudo.setBoard(board))
         {
             sudo.printOut();
+
+            System.out.println(" ");
+
+            if (sudo.SolveSudoku())
+            {
+                sudo.printOut();
+            }
+            else
+            {
+                System.out.println("Failed to solve");
+            }
         }
         else
             {
-                System.out.println("failed");
+                System.out.println("The board must be 9x9 in size!");
             }
+
     }
 
 }

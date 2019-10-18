@@ -2,9 +2,18 @@ public class Sudoku
 {
     private int myBoard[][];
 
-    public void setBoard(int[][] board)
+    public boolean setBoard(int[][] board)
     {
         myBoard = new int[9][9];
+
+        if(board.length == 9)
+        {
+            for(int i =0; i<9; i++)
+            {
+                if(board[i].length != 9){return false;}
+            }
+        }
+        else{return false;}
 
         for (int i = 0; i < 9; i++)
         {
@@ -13,6 +22,7 @@ public class Sudoku
                 myBoard[i][j] = board[i][j];
             }
         }
+        return true;
     }
 
     private boolean checkRow(int row, int num)
